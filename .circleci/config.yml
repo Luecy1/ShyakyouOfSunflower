@@ -45,9 +45,3 @@ workflows:
   build:
     jobs:
     - build
-    - deploy_debug:
-        requires:
-        - build
-        filters:
-          branches:
-            only: master
