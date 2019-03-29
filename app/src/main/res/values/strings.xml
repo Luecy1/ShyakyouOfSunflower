@@ -1,3 +1,21 @@
 <resources>
     <string name="app_name">ShyakyouOfSunflower</string>
+    <string name="my_garden_title">My Garden</string>
+    <string name="plant_list_title">Plant list</string>
+
+    <string name="garden_empty">Your garden is empty</string>
+    <string name="planted_date">%1$s planted on %2$s</string>
+    <string name="navigation_drawer_header_content_description">Image of plant</string>
+    <string name="navigation_drawer_header_title">Sunflower</string>
+    <string name="ally_plant_item_image">Picture of plant</string>
+
+    <string name="watering_next_prefix"
+            translation_description="Prefix for the text indicating when the plant should next be watered. Used in combination with watering_next_suffix.">
+        Last watered on %s
+    </string>
+    <plurals name="watering_next_suffix">
+        <item quantity="one">water tomorrow.</item>
+        <item quantity="other">water in %d days.</item>
+    </plurals>
+    <string name="water_date">%1$s - %2$s</string>
 </resources>
