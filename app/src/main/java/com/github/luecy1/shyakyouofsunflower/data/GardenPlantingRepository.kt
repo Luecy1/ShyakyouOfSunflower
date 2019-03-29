@@ -6,6 +6,8 @@ class GardenPlantingRepository private constructor(
 
     fun getGardenPlantings() = gardenPlantingDao.getGardenPlantings()
 
+    fun getPlantAndGardenPlantings() = gardenPlantingDao.getPlantAndGardenPlantings()
+
     companion object {
 
         @Volatile

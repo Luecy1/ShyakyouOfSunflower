@@ -1,10 +1,11 @@
 package com.github.luecy1.shyakyouofsunflower
 
 import android.os.Bundle
-import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
+import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProviders
 import com.github.luecy1.shyakyouofsunflower.adapters.GardenPlantingAdapter
 import com.github.luecy1.shyakyouofsunflower.databinding.FragmentGardenBinding
@@ -31,6 +32,14 @@ class GardenFragment : Fragment() {
         val viewModel = ViewModelProviders.of(this, factory)
             .get(GardenPlantingListViewModel::class.java)
 
-        viewModel.gardenPlantings
+        viewModel.gardenPlantings.observe(viewLifecycleOwner, Observer { plantings ->
+            binding.hasPlantings = !plantings.isNullOrEmpty()
+        })
+
+        viewModel.plantAndGardenPlantings.observe(viewLifecycleOwner, Observer { result ->
+            if (!result.isNullOrEmpty()) {
+                adapter.submitList(result)
+            }
+        })
     }
 }
