@@ -15,6 +15,7 @@ import com.github.luecy1.shyakyouofsunflower.workers.SeedDatabaseWorker
 @TypeConverters(Converters::class)
 abstract class AppDatabase : RoomDatabase() {
     abstract fun gardenPlantingDao(): GardenPlantingDao
+    abstract fun plantDao(): PlantDao
 
     companion object {
 
