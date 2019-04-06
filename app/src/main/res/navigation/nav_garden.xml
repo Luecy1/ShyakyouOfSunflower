@@ -8,5 +8,12 @@
             android:id="@+id/garden_fragment"
             android:name="com.github.luecy1.shyakyouofsunflower.GardenFragment"
             android:label="@string/my_garden_title"
-            tools:layout="@layout/fragment_garden"/>
+            tools:layout="@layout/fragment_garden">
+    </fragment>
+
+    <fragment
+            android:id="@+id/plant_list_fragment"
+            android:name="com.github.luecy1.shyakyouofsunflower.PlantListFragment"
+            android:label="fragment_plant_list"
+            tools:layout="@layout/fragment_plant_list"/>
 </navigation>

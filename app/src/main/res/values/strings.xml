@@ -19,4 +19,7 @@
     </plurals>
     <string name="water_date">%1$s - %2$s</string>
     <string name="watering_needs_prefix">Watering needs:</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 </resources>
