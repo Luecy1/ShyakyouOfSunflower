@@ -1,9 +1,7 @@
 package com.github.luecy1.shyakyouofsunflower.data
 
 import androidx.lifecycle.LiveData
-import androidx.room.Dao
-import androidx.room.Query
-import androidx.room.Transaction
+import androidx.room.*
 
 @Dao
 interface GardenPlantingDao {
@@ -21,4 +19,9 @@ interface GardenPlantingDao {
     @Query("SELECT * FROM plants")
     fun getPlantAndGardenPlantings(): LiveData<List<PlantAndGardenPlantings>>
 
+    @Insert
+    fun insertGardenPlanting(gardenPlanting: GardenPlanting): Long
+
+    @Delete
+    fun deleteGardenPlanting(gardenPlanting: GardenPlanting)
 }
