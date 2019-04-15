@@ -7,6 +7,8 @@ import androidx.lifecycle.viewModelScope
 import com.github.luecy1.shyakyouofsunflower.data.GardenPlantingRepository
 import com.github.luecy1.shyakyouofsunflower.data.Plant
 import com.github.luecy1.shyakyouofsunflower.data.PlantRepository
+import kotlinx.coroutines.ExperimentalCoroutinesApi
+import kotlinx.coroutines.cancel
 import kotlinx.coroutines.launch
 
 class PlantDetailViewModel(
@@ -17,6 +19,12 @@ class PlantDetailViewModel(
 
     val isPlanted: LiveData<Boolean>
     val plant: LiveData<Plant>
+
+    @ExperimentalCoroutinesApi
+    override fun onCleared() {
+        super.onCleared()
+        viewModelScope.cancel()
+    }
 
     init {
 
