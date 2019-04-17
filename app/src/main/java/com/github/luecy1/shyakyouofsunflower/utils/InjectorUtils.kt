@@ -6,6 +6,7 @@ import com.github.luecy1.shyakyouofsunflower.data.AppDatabase
 import com.github.luecy1.shyakyouofsunflower.data.GardenPlantingRepository
 import com.github.luecy1.shyakyouofsunflower.data.PlantRepository
 import com.github.luecy1.shyakyouofsunflower.viewmodel.GardenPlantingListViewModelFactory
+import com.github.luecy1.shyakyouofsunflower.viewmodel.PlantDetailViewModelFactory
 import com.github.luecy1.shyakyouofsunflower.viewmodel.PlantListViewModelFactory
 
 object InjectorUtils {
@@ -23,7 +24,7 @@ object InjectorUtils {
     }
 
     fun provideGardenPlantingListModelFactory(context: Context)
-        : GardenPlantingListViewModelFactory {
+            : GardenPlantingListViewModelFactory {
         val repository = getGardenPlantingRepository(context)
         return GardenPlantingListViewModelFactory(repository)
     }
@@ -31,5 +32,16 @@ object InjectorUtils {
     fun providePlantListModelFactory(context: Context): ViewModelProvider.Factory? {
         val repository = getPlantRepository(context)
         return PlantListViewModelFactory(repository)
+    }
+
+    fun providePlantDetailViewModelFactory(
+        context: Context,
+        plantId: String
+    ): PlantDetailViewModelFactory {
+        return PlantDetailViewModelFactory(
+            getPlantRepository(context),
+            getGardenPlantingRepository(context),
+            plantId
+        )
     }
 }
