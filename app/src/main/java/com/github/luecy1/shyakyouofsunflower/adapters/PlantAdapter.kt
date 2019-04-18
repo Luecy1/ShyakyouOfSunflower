@@ -3,9 +3,11 @@ package com.github.luecy1.shyakyouofsunflower.adapters
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.DiffUtil
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.github.luecy1.shyakyouofsunflower.PlantListFragmentDirections
 import com.github.luecy1.shyakyouofsunflower.data.Plant
 import com.github.luecy1.shyakyouofsunflower.databinding.ListItemPlantBinding
 
@@ -29,7 +31,9 @@ class PlantAdapter : ListAdapter<Plant, PlantAdapter.ViewHolder>(PlantDiffCallba
 
     private fun createOnClickListener(plantId: String): View.OnClickListener {
         return View.OnClickListener {
-            // TODO
+            val direction =
+                PlantListFragmentDirections.actionPlantListFragmentToPlantDetailFragment(plantId)
+            it.findNavController().navigate(direction)
         }
     }
 
