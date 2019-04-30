@@ -25,7 +25,6 @@ class PlantDaoTest {
     @get:Rule
     var instantTaskExecutorRule = InstantTaskExecutorRule()
 
-
     @Before
     fun createDb() {
         val context = InstrumentationRegistry.getTargetContext()
@@ -50,5 +49,19 @@ class PlantDaoTest {
         assertThat(plantList[2], equalTo(plantC))
     }
 
+    @Test
+    fun testGetPlantsWithGrowZoneNumber() {
+        val plantList = getValue(plantDao.getPlantsWithGrowZoneNumber(1))
+        assertThat(plantList.size, equalTo(2))
+        assertThat(getValue(plantDao.getPlantsWithGrowZoneNumber(2)).size, equalTo(1))
+        assertThat(getValue(plantDao.getPlantsWithGrowZoneNumber(3)).size, equalTo(0))
 
+        assertThat(plantList[0], equalTo(plantA))
+        assertThat(plantList[1], equalTo(plantB))
+    }
+
+    @Test
+    fun testGetPlant() {
+        assertThat(getValue(plantDao.getPlant(plantA.plantId)), equalTo(plantA))
+    }
 }
